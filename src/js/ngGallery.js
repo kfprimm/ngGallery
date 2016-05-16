@@ -30,7 +30,7 @@
         // Set the default template
         $templateCache.put(template_url,
             '<div class="{{ baseClass }}">' +
-            '  <div ng-repeat="i in images">' +
+            '  <div ng-repeat="i in images | limitTo:listNum">' +
             '    <img ng-src="{{ i.thumb }}" class="{{ thumbClass }}" ng-click="openGallery($index)" alt="Image {{ $index + 1 }}" />' +
             '  </div>' +
             '</div>' +
@@ -59,6 +59,7 @@
             scope: {
                 images: '=',
                 thumbsNum: '@',
+                listNum: '@',
                 hideOverflow: '='
             },
             controller: [
